@@ -11,7 +11,7 @@ typedef unsigned char uchar;
 using namespace std;
 using namespace cv;
 
-uchar** uc_alloc(int size_x, int size_y)												// 메모리 할당받는 함수
+uchar** uc_alloc(int size_x, int size_y)		// 메모리 할당받는 함수
 {
 	uchar** m;
 	int i;
@@ -145,7 +145,7 @@ void PowImg(uchar** img, uchar** Result, int Row, int Col, double gamma)				// �
 			// 나누어진 255 값을 다시 곱하여 줌
 		}
 }
-double average(uchar** img, int Row, int Col)											// 감마 평균 정정을 위한 평균값 구하는 함수
+double average(uchar** img, int Row, int Col)	// 감마 평균 정정을 위한 평균값 구하는 함수
 {
 	double sum = 0, avg;
 	int i, j;
@@ -163,7 +163,7 @@ double average(uchar** img, int Row, int Col)											// 감마 평균 정정�
 	return avg;
 }
 
-double powAvgImg(uchar** img, uchar** res, int Row, int Col)							// 감마 평균 정정 함수
+double powAvgImg(uchar** img, uchar** res, int Row, int Col)	// 감마 평균 정정 함수
 {
 	/*
 		k = 감마 , 감마를 0부터 10까지 0.001씩 대입해서
@@ -241,8 +241,8 @@ void midterm(uchar** img, uchar** res, int Row, int Col, int mode)
 					ySquare = (col_pos - i) * (col_pos - i);
 					xSquare = (row_pos - j) * (row_pos - j);
 
-					tmp = sqrt(ySquare + xSquare);							// tmp -> 각각의 픽셀이 한가운데의 중앙 점으로부터 떨어져 있는 정도.
-																			// 빗변의 길이 = (a^2+b^2)의 제곱근 -> tmp = sqrt(ysquare +xsquare)
+					tmp = sqrt(ySquare + xSquare);	// tmp -> 각각의 픽셀이 한가운데의 중앙 점으로부터 떨어져 있는 정도.
+									// 빗변의 길이 = (a^2+b^2)의 제곱근 -> tmp = sqrt(ysquare +xsquare)
 					if (tmp<diameter)
 						// 원 안의 영역은 영상을 처리
 						res[i][j] = 255 - img[i][j];
@@ -396,7 +396,7 @@ int main(int argc, char* argv[])
 			for (j = 0; j < Col; j++)
 			{
 				// (cvImg.data+cvImg.step*i)[j] = img[i][j]; // Think this
-				cvImg.at<uchar>(i, j) = res[i][j];								// 출력영상을 기본이미지 파일(img)이 아닌 작업을 처리한 결과이미지(res)로 바꿔줌
+				cvImg.at<uchar>(i, j) = res[i][j];	// 출력영상을 기본이미지 파일(img)이 아닌 작업을 처리한 결과이미지(res)로 바꿔줌
 			}
 
 		write_ucmatrix(Row, Col, res, argv[4]);
