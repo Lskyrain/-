@@ -1,3 +1,6 @@
+/*
+	0~13 까지 모드 선택
+*/
 #include <opencv2/opencv.hpp>
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
