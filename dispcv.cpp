@@ -1037,6 +1037,12 @@ void final(uchar** img, uchar** res, int Row, int Col)
 	imshow("original disp", org_img);
 	namedWindow("convolution disp", WINDOW_AUTOSIZE);
 	imshow("convolution disp", tmp_img);
+	
+	free(org_img);
+	free(tmp_img);
+	free(spa_img);
+	free(freq_img);
+	free(difference);
 }
 
 int main(int argc, char* argv[])
